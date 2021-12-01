@@ -1,0 +1,19 @@
+{
+  "name": "blossom-plus",
+  "version": "0.0.1",
+  "description": "a theme manager for daisyUI",
+  "main": "index.js",
+  "bin": {
+    "blossomplus": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add": "node index.js"
+  },
+  "author": "bleedingeffigy",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^8.3.0"
+  }
+}
