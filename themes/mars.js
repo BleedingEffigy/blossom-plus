@@ -1,6 +1,7 @@
 
 const marsTheme = 
-        `'mars': {
+        `{
+          'mars': {
           'primary': '#f95e4d',
           'primary-focus': '#d74742',
           'primary-content': '#eab41f',
@@ -21,6 +22,7 @@ const marsTheme =
           'success': '#009485',
           'warning': '#ff9900',
           'error': '#ff5724'
+          }
         }`
 
 module.exports = marsTheme
