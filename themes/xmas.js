@@ -24,4 +24,4 @@ const xmasTheme =
         }
     }`
 
-        module.exports = xmasTheme
+module.exports = xmasTheme
