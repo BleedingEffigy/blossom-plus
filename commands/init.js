@@ -1,4 +1,5 @@
 var fs = require('fs')
+const chalk = require('chalk')
 const marsTheme = require('../themes/mars')
 
 const tailwindConfigLocation = "./tailwind.config.js"
@@ -26,6 +27,8 @@ const init = () => {
     // search tail for daisyui plugin
     // in the regex we have to escape the paranthesis so we're not grouping
     daisyUIinstalled = configTail.search(/require\('daisyui'\)/) != -1
+    // announce adding daisyUI plugin, using chalk for styling
+    if (!daisyUIinstalled) console.log(chalk.magenta.bold("Adding daisyui to plugins list in tailwind.config.js"))
 
     // build file contents dependent on whether daisyUI is installed
     finalFileContents = !daisyUIinstalled ? configHead+daisyRequireString+configTail
@@ -37,8 +40,8 @@ const init = () => {
     // and a theme preloaded
     if(!daisyObjectExists) {
         finalFileContents = finalFileContents.slice(0,-2) + daisyThemeString + '\n}'
+        console.log(chalk.blue.bold("Adding daisyui object to tailwind.config.js"))
     } 
-    console.log(finalFileContents)
     // write file to contents
     try {
         fs.writeFileSync(tailwindConfigLocation, finalFileContents)
