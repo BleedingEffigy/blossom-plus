@@ -1,32 +1,34 @@
 var fs = require('fs')
-
+const marsTheme = require('../themes/mars')
+const xmasTheme = require('../themes/xmas')
 
 const add = () => {
     var tailwindBuffer = fs.readFileSync("./tailwind.config.js");
-    // console.log("work done");
-    // read file buffer to string
-    tailwindFile = tailwindBuffer.toString();
-    // finds opening bracket for export module
-    moduleExports = tailwindFile.search(/ {/)
-    // truncate the file to only contain the exports json
-    exportString = tailwindFile.slice(moduleExports);
-    // turn the keys into strings so it can be converted to json
-    // exportJSONReady = exportString.replace("\w+", "$&t");
-    exportJSON = JSON.stringify(exportString);
-    console.log(exportJSON);
+    // read the file into string
+    tailwindConfig = tailwindBuffer.toString()
+    // finds opening bracket for the themes field
+    themesOpenIndex = tailwindConfig.search(/themes: \[/) + 9
+    // split the file at the themes array bracket, and store the head ...
+    tailwindConfigBeforeThemes = tailwindConfig.slice(0, themesOpenIndex)
+    // and now store the tail
+    tailwindConfigTail = tailwindConfig.slice(themesOpenIndex)
+    // find the closing bracket of the themes field
+    //this value is the index in the tail, so we add themesOpenIndex to compensate 
+    themesCloseIndex = tailwindConfigTail.search(/]/) + themesOpenIndex
+    // store the string after the themes array closing bracket
+    tailwindConfigAfterThemes = tailwindConfig.slice(themesCloseIndex)
+    // find the index of the custom themes opening bracket, inside the themes array
+    customThemesIndex = tailwindConfig.slice(themesOpenIndex).search('{') + themesOpenIndex
+    // store the string of the map
+    customThemesString = tailwindConfig.slice(themesOpenIndex, themesCloseIndex).replaceAll("'", "\"")
+    // turn that JSON string into an object 
+    customThemesObject = JSON.parse(customThemesString)
+    //get the user selected theme and turn into object, changing any single-quotes to double so the parser works
+    userCustomThemeObject = JSON.parse(xmasTheme.replaceAll("'","\""))
+    // add the requested theme to the list
+    customThemesObject = {...customThemesObject, ...userCustomThemeObject}
 
-    // find the key for daisyUI to make sure it was installed
-    // daisyUI = tailwindFile.search(/daisyui: /)
-    // console.log(daisyUI)
-    // if(daisyUI != -1){
-    //     installedThemesIndex = tailwindFile.search(/themes: /)
-    //     installedThemes = tailwindFile.slice(installedThemesIndex+16)
-    //     console.log(installedThemes)
-    //     // JSON.parse(installedThemes)
-    // }
-    // else {
-    //     console.error("DaisyUI is not installed");
-    // }
+    console.log(tailwindConfigBeforeThemes + JSON.stringify(customThemesObject) + tailwindConfigAfterThemes);
 
 }
 
