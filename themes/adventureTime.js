@@ -24,4 +24,4 @@ const adventureTimeTheme =
         }
     }`
 
-module.exports = xmasTheme
+module.exports = adventureTimeTheme
