@@ -6,9 +6,7 @@ const daisyRequireString = '\n    require(\'daisyui\'),\n  '
 const daisyThemeString = `,
   daisyui: {
     themes: [
-        {
         ${marsTheme}
-        }
     ],
   },\n`
 
@@ -48,7 +46,6 @@ const init = () => {
         console.error(err)
     }
 
-    console.log(daisyObjectExists)    
     //close the file connections
 }
 
