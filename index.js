@@ -13,7 +13,7 @@ program
     
 program    
     .command('init')
-    .description("initiliaze daisyUI and setup themeing")
+    .description("initiliaze daisyUI and setup theming")
     .action(init)
 
 program
