@@ -7,7 +7,7 @@ const init = require('./commands/init')
 const list = require('./commands/list')
 
 program
-    .command('add')
+    .command('add <theme>')
     .description("add a daisyUI theme to tailwind.config.js")
     .action(add)
     

@@ -1,4 +1,5 @@
 var fs = require('fs')
+const chalk = require('chalk')
 const tailwindConfigLocation = "./tailwind.config.js"
 
 const list = () => {
@@ -20,7 +21,7 @@ const list = () => {
     // turn that JSON string into an object 
     customThemesObject = JSON.parse(customThemesString)
     // list the names of the installed themes
-    Object.keys(customThemesObject).forEach( keys => console.log(keys))
+    Object.keys(customThemesObject).forEach( keys => console.log(chalk.red.underline(keys)))
 
     // find the index of the closing bracket
     // console.log(customThemesMap)
