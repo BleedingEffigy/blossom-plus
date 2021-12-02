@@ -1,8 +1,27 @@
 var fs = require('fs')
+const chalk = require('chalk')
+const tailwindConfigLocation = "./tailwind.config.js"
 const marsTheme = require('../themes/mars')
 const xmasTheme = require('../themes/xmas')
+const adventureTimeTheme = require('../themes/adventureTime')
 
-const add = () => {
+const add = (theme) => {
+
+// a switch to retrieve the inputted theme
+    let chosenTheme = ''
+    switch(theme) {
+        case 'mars':
+            chosenTheme = marsTheme
+            break;
+        case 'xmas':
+            chosenTheme = xmasTheme
+            break;
+        case 'adventure-time':
+            chosenTheme = adventureTimeTheme
+            break;
+        default:
+            chosenTheme = marsTheme
+    }
     var tailwindBuffer = fs.readFileSync("./tailwind.config.js");
     // read the file into string
     tailwindConfig = tailwindBuffer.toString()
@@ -24,11 +43,16 @@ const add = () => {
     // turn that JSON string into an object 
     customThemesObject = JSON.parse(customThemesString)
     //get the user selected theme and turn into object, changing any single-quotes to double so the parser works
-    userCustomThemeObject = JSON.parse(xmasTheme.replaceAll("'","\""))
+    userCustomThemeObject = JSON.parse(chosenTheme.replaceAll("'","\""))
     // add the requested theme to the list
     customThemesObject = {...customThemesObject, ...userCustomThemeObject}
-
-    console.log(tailwindConfigBeforeThemes + JSON.stringify(customThemesObject) + tailwindConfigAfterThemes);
+    // write these changes to the file
+     try {
+        fs.writeFileSync(tailwindConfigLocation, tailwindConfigBeforeThemes + JSON.stringify(customThemesObject) + tailwindConfigAfterThemes)
+        console.log(chalk.blue(`Added ${theme} to theme's list`))
+    } catch (err) {
+        console.error(err)
+    }
 
 }
 
