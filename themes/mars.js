@@ -20,7 +20,7 @@ const marsTheme =
           'info': '#2094f3',
           'success': '#009485',
           'warning': '#ff9900',
-          'error': '#ff5724',
+          'error': '#ff5724'
         }`
 
 module.exports = marsTheme
