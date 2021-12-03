@@ -9,7 +9,29 @@ const daisyRequireString = '\n    require(\'daisyui\'),\n  '
 const daisyThemeString = `,
   daisyui: {
     themes: [
-        ${marsTheme}
+        ${marsTheme},
+        light,
+        dark,
+        cupcake,
+        bumblebee,
+        emerald,
+        corporate,
+        synthwave,
+        retro,
+        cyberpunk,
+        valentine,
+        halloween,
+        garden,
+        forest,
+        aqua,
+        lofi,
+        pastel,
+        fantasy,
+        wireframe,
+        black,
+        luxury,
+        dracula,
+        cmyk
     ],
   },\n`
 
