@@ -1,6 +1,7 @@
 var fs = require('fs')
 const chalk = require('chalk')
-const tailwindConfigLocation = "./tailwind.config.js"
+const utils = require('../utils/utils')
+const tailwindConfigLocation = utils.getTailwindConfigLocation() 
 
 const list = () => {
  

@@ -1,8 +1,10 @@
 var fs = require('fs')
 const chalk = require('chalk')
 const marsTheme = require('../themes/mars')
+const utils = require('../utils/utils')
 
 const tailwindConfigLocation = "./tailwind.config.js"
+const tailwindCommonJSConfigLocation = "./tailwind.config.cjs"
 const daisyRequireString = '\n    require(\'daisyui\'),\n  '
 const daisyThemeString = `,
   daisyui: {
@@ -14,8 +16,12 @@ const daisyThemeString = `,
 const init = () => {
     // declare the string that will be writen to file
     var finalFileContents
+    // learn which file extension the tailwind config is using
+    var fileLocation = utils.getTailwindConfigLocation()
+
+
     // read the tailwind config file into buffer
-    var fileBuffer = fs.readFileSync(tailwindConfigLocation)
+    var fileBuffer = fs.readFileSync(fileLocation)
     // read the file into string
     tailwindConfig = fileBuffer.toString()
     // finds opening bracket for the plugins field
@@ -44,7 +50,7 @@ const init = () => {
     } 
     // write file to contents
     try {
-        fs.writeFileSync(tailwindConfigLocation, finalFileContents)
+        fs.writeFileSync(fileLocation, finalFileContents)
     } catch (err) {
         console.error(err)
     }

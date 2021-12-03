@@ -1,6 +1,7 @@
 var fs = require('fs')
 const chalk = require('chalk')
-const tailwindConfigLocation = "./tailwind.config.js"
+const utils = require('../utils/utils')
+const tailwindConfigLocation = utils.getTailwindConfigLocation()
 const marsTheme = require('../themes/mars')
 const xmasTheme = require('../themes/xmas')
 const adventureTimeTheme = require('../themes/adventureTime')
@@ -16,13 +17,16 @@ const add = (theme) => {
         case 'xmas':
             chosenTheme = xmasTheme
             break;
-        case 'adventure-time':
+        case 'adventuretime':
             chosenTheme = adventureTimeTheme
             break;
         default:
-            chosenTheme = marsTheme
+            console.error(chalk.bgRed("Theme not found. Choose an existing theme"))
+            process.exit(1)
     }
-    var tailwindBuffer = fs.readFileSync("./tailwind.config.js");
+
+    // find the tailwind config file
+    var tailwindBuffer = fs.readFileSync(tailwindConfigLocation);
     // read the file into string
     tailwindConfig = tailwindBuffer.toString()
     // finds opening bracket for the themes field
