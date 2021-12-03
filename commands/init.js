@@ -31,7 +31,7 @@ const daisyThemeString = `,
         'black',
         'luxury',
         'dracula',
-        'cmy'k
+        'cmyk'
     ],
   },\n`
 
