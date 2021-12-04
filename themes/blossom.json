@@ -1,0 +1,32 @@
+{
+    "blossom": {
+        "primary" : "#c91f5d",
+        "primary-focus" : "#a0184b",
+        "primary-content" : "#ffffff",
+        "secondary" : "#a68df6",
+        "secondary-focus" : "#8462f3",
+        "secondary-content" : "#ffffff",
+        "accent" : "#88dbdd",
+        "accent-focus" : "#62ced0",
+        "accent-content" : "#ffffff",
+        "neutral" : "#3e2318",
+        "neutral-focus" : "#271710",
+        "neutral-content" : "#f0d6e8",
+        "base-100" : "#cea69f",
+        "base-200" : "#a76567",
+        "base-300" : "#8d5258",
+        "base-content" : "#251217",
+        "info" : "#1c92f2",
+        "success" : "#009485",
+        "warning" : "#ff9900",
+        "error" : "#ff5724",
+        "--rounded-box": "1rem",          
+        "--rounded-btn": "1.9rem",        
+        "--rounded-badge": "1.9rem",      
+        "--animation-btn": ".25s",       
+        "--animation-input": ".2s",       
+        "--btn-text-case": "uppercase",   
+        "--navbar-padding": ".5rem",      
+        "--border-btn": "1px"        
+    }
+  }
