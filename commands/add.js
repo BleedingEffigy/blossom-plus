@@ -42,10 +42,12 @@ const add = (theme) => {
     tailwindConfigAfterThemes = tailwindConfig.slice(themesCloseIndex)
     // find the index of the custom themes opening bracket, inside the themes array
     customThemesIndex = tailwindConfig.slice(themesOpenIndex).search('{') + themesOpenIndex
-    // store the string of the map
+    // store the string of everything inside the themes array
     customThemesString = tailwindConfig.slice(themesOpenIndex, themesCloseIndex).replaceAll("'", "\"")
+    // find the closing brace for custom themes map
+    customThemesMapClosingIndex = customThemesString.lastIndexOf("}") + 1
     // turn that JSON string into an object 
-    customThemesObject = JSON.parse(customThemesString)
+    customThemesObject = JSON.parse(customThemesString.slice(0, customThemesMapClosingIndex))
     //get the user selected theme and turn into object, changing any single-quotes to double so the parser works
     userCustomThemeObject = JSON.parse(chosenTheme.replaceAll("'","\""))
     // add the requested theme to the list
