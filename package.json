@@ -1,6 +1,6 @@
 {
   "name": "blossomplus",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "a setup and theme manager for daisyUI",
   "main": "index.js",
   "bin": {
