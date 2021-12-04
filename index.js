@@ -20,5 +20,6 @@ program
     .command('list')
     .description("list currently installed themes")
     .action(list)
+program.version(process.env.npm_package_version)
 
 program.parse()
