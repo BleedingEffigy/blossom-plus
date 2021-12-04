@@ -9,7 +9,7 @@ const daisyRequireString = '\n    require(\'daisyui\'),\n  '
 const daisyThemeString = `,
   daisyui: {
     themes: [
-        ${marsTheme},
+        ${JSON.stringify(marsTheme)},
         'light',
         'dark',
         'cupcake',

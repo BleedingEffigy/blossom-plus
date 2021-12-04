@@ -48,10 +48,8 @@ const add = (theme) => {
     customThemesMapClosingIndex = customThemesString.lastIndexOf("}") + 1
     // turn that JSON string into an object 
     customThemesObject = JSON.parse(customThemesString.slice(0, customThemesMapClosingIndex))
-    //get the user selected theme and turn into object, changing any single-quotes to double so the parser works
-    userCustomThemeObject = JSON.parse(chosenTheme.replaceAll("'","\""))
     // add the requested theme to the list
-    customThemesObject = {...customThemesObject, ...userCustomThemeObject}
+    customThemesObject = {...customThemesObject, ...chosenTheme}
     // write these changes to the file
      try {
         fs.writeFileSync(tailwindConfigLocation, tailwindConfigBeforeThemes + JSON.stringify(customThemesObject) + tailwindConfigAfterThemes)
