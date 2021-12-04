@@ -1,6 +1,6 @@
 var fs = require('fs')
 const chalk = require('chalk')
-const marsTheme = require('../themes/mars')
+const blossomTheme = require('../themes/blossom')
 const utils = require('../utils/utils')
 
 const tailwindConfigLocation = "./tailwind.config.js"
@@ -9,7 +9,7 @@ const daisyRequireString = '\n    require(\'daisyui\'),\n  '
 const daisyThemeString = `,
   daisyui: {
     themes: [
-        ${JSON.stringify(marsTheme)},
+        ${JSON.stringify(blossomTheme)},
         'light',
         'dark',
         'cupcake',
