@@ -38,8 +38,6 @@ const add = (theme) => {
     // find the closing bracket of the themes field
     //this value is the index in the tail, so we add themesOpenIndex to compensate 
     themesCloseIndex = tailwindConfigTail.search(/]/) + themesOpenIndex
-    // store the string after the themes array closing bracket
-    tailwindConfigAfterThemes = tailwindConfig.slice(themesCloseIndex)
     // find the index of the custom themes opening bracket, inside the themes array
     customThemesIndex = tailwindConfig.slice(themesOpenIndex).search('{') + themesOpenIndex
     // store the string of everything inside the themes array
@@ -50,6 +48,8 @@ const add = (theme) => {
     customThemesObject = JSON.parse(customThemesString.slice(0, customThemesMapClosingIndex))
     // add the requested theme to the list
     customThemesObject = {...customThemesObject, ...chosenTheme}
+    // store the string after the themes array closing bracket
+    tailwindConfigAfterThemes = tailwindConfig.slice(customThemesMapClosingIndex + themesOpenIndex)
     // write these changes to the file
      try {
         fs.writeFileSync(tailwindConfigLocation, tailwindConfigBeforeThemes + JSON.stringify(customThemesObject) + tailwindConfigAfterThemes)
