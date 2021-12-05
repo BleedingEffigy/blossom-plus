@@ -35,6 +35,12 @@ const daisyThemeString = `,
     ],
   },\n`
 
+/**
+ * Configures tailwind.config.(js|cjs) by making sure the daisyui 
+ * plugin is installed, and then if needed inserts the daisyui 
+ * config object. It then populates this object with all the default 
+ * themes, and the daisyui ones too.
+ */
 const init = () => {
     // declare the string that will be writen to file
     var finalFileContents

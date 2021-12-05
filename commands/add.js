@@ -6,6 +6,11 @@ const marsTheme = require('../themes/mars')
 const xmasTheme = require('../themes/xmas')
 const adventureTimeTheme = require('../themes/adventureTime')
 
+
+/**
+ * Looksup the given theme and stores it in daisyui config's custom theme map
+ * @param {string} theme 
+ */ 
 const add = (theme) => {
 
     var chosenTheme = ''

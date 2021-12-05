@@ -3,6 +3,9 @@ const chalk = require('chalk')
 const utils = require('../utils/utils')
 const tailwindConfigLocation = utils.getTailwindConfigLocation() 
 
+/**
+ * lists all installed custom themes
+ */
 const list = () => {
  
     var fileBuffer = fs.readFileSync(tailwindConfigLocation)
