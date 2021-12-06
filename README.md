@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/BleedingEffigy/blossom-plus">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/BleedingEffigy/astro/blob/master/public/BlossomPlusOG.png?raw=true" alt="Logo">
   </a>
 
 <h3 align="center">Blossom Plus</h3>
@@ -81,10 +81,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `BleedingEffigy`, `blossom-plus`, `bleedingeffigy`, `alex-hernandez-cloud-dev`, `ahern077`, `gmail`, `Blossom Plus`, `A daisyUI theme manager`
+Blossom+ is a tool that manages the daisyUI plugin for tailwindcss. As of now, it supports installing the plugin, and setting up the structures for custom theming.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -92,14 +89,9 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [npm](https://www.npmjs.com)
+* [Commander](https://www.npmjs.com/package/commander)
+* [Chalk](https://www.npmjs.com/package/chalk)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -107,33 +99,37 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Blossom+ works by adding the daisyui plugin into an existing tailwind configuration file. Then after its easy to add and list installed themes.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+tailwind css and daisyui should be installed 
+via their respective docs:
+
+* tailwindcss
   ```sh
-  npm install npm@latest -g
+  npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+  ```
+  [you'll also have to install tailwind as a plugin to PostCSS](https://tailwindcss.com/docs/installation#add-tailwind-as-a-post-css-plugin)
+  
+  then create a tailwind configuration file
+  ```sh
+  npx tailwindcss init
+  ```
+  lastly [include tailwind in a global css file](https://tailwindcss.com/docs/installation#include-tailwind-in-your-css)
+  
+* daisyui
+  ```sh
+  npm i daisyui
   ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/BleedingEffigy/blossom-plus.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+```sh
+npx blossomplus init
+```
+this adds the daisyUI plugin to tailwinds configuration file
+This also installs all the default themes provided by daisyUI
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -142,9 +138,17 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Add a custom theme
+```sh
+npx blossomplus add xmas
+```
+All custom themes live in the repo and can be found here.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### List all custom themes
+```sh
+npx blossomplus list
+```
+_For more examples, please refer to the [Documentation](https://blossomplus.netlify.app/)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -153,10 +157,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-    - [] Nested Feature
+- [] Remove themes
+- [] Creates tailwind config if it hasn't been yet
+- [] More themes
+    - [] create country themes inspired from https://flatuicolors.com/
 
 See the [open issues](https://github.com/BleedingEffigy/blossom-plus/issues) for a full list of proposed features (and known issues).
 
@@ -167,16 +171,7 @@ See the [open issues](https://github.com/BleedingEffigy/blossom-plus/issues) for
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Coming soon...
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -194,7 +189,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@bleedingeffigy](https://twitter.com/bleedingeffigy) - ahern077@gmail.com
+Your Name - [@alexwhocodes255](https://twitter.com/bleedingeffigy) - ahern077@gmail.com
 
 Project Link: [https://github.com/BleedingEffigy/blossom-plus](https://github.com/BleedingEffigy/blossom-plus)
 
@@ -205,9 +200,8 @@ Project Link: [https://github.com/BleedingEffigy/blossom-plus](https://github.co
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* [Pouya Saadeghi](https://github.com/saadeghi) for creating daisyui
+* [Marshall Thompson](https://github.com/marshallswain) for creating the theme builder [here](https://themes.ionevolve.com/) used heavily in the projects
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
