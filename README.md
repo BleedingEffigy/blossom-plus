@@ -41,7 +41,7 @@
     <a href="https://github.com/BleedingEffigy/blossom-plus"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/BleedingEffigy/blossom-plus">View Demo</a>
+    <a href="https://blossomplus.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/BleedingEffigy/blossom-plus/issues">Report Bug</a>
     ·
