@@ -4,6 +4,7 @@
 const { program } = require('commander')
 const add = require('./commands/add')
 const init = require('./commands/init')
+const init2 = require('./commands/init2')
 const list = require('./commands/list')
 
 program
@@ -15,7 +16,10 @@ program
     .command('init')
     .description("initiliaze daisyUI and setup theming")
     .action(init)
-
+program    
+    .command('init2')
+    .description("initiliaze daisyUI and setup theming")
+    .action(init2)
 program
     .command('list')
     .description("list currently installed themes")
